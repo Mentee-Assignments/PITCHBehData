@@ -6,10 +6,10 @@ import pandas as pd
 import numpy as np
 
 # change directory to get the script to work the same as it does in the tests
-os.chdir('../../../')
+os.chdir('../../')
 
-path = os.path.join(os.getcwd(), 'PITCH/PreprocData')
-out_dir = os.path.join(os.getcwd(), 'PITCH/Bids')
+path = os.path.join(os.getcwd(), 'PreprocData')
+out_dir = os.path.join(os.getcwd(), 'Bids')
 beh = glob(os.path.join(path, '[0-9][0-9]/[CEa-z]*/[Preost]*/Flanker/run[1-2]/beh/*.txt'))
 
 
@@ -97,6 +97,8 @@ for sub_stype_ses_run, fdict in cond_dict.items():
     run_df = run_df[headers]
     run_df.sort_values(by=['onset'], inplace=True)
     sub, stype, ses, run = sub_stype_ses_run.split('_')
-    out_file = os.path.join(os.getcwd(), 'PITCH/Bids/sub-0{sub}/ses-{stype}{ses}/func/sub-0{sub}_ses-{stype}{ses}_task-flanker_run-0{run}_events.tsv'.format(sub=sub, ses=ses, run=run, stype=stype))
+    out_dir = os.path.join(os.getcwd(), 'Bids/sub-0{sub}/ses-{stype}{ses}/func/'.format(sub=sub, ses=ses, stype=stype))
+    os.makedirs(out_dir, exist_ok=True)
+    out_file = os.path.join(out_dir, 'sub-0{sub}_ses-{stype}{ses}_task-flanker_run-0{run}_events.tsv'.format(sub=sub, ses=ses, run=run, stype=stype))
     if not run_df.empty:
         run_df.to_csv(out_file, sep='\t', na_rep='NaN', index=False)
