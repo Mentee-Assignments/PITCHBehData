@@ -1,0 +1,21 @@
+file version= 2.0
+gentask.....= PsychoPy
+id..........=
+operator....=
+doctor......=
+referral....=
+institution.=
+subject.....= P36E1BEH
+age.........=
+sex.........=
+hand........=
+medications.=
+class.......=
+state.......=
+label.......=
+date........= 2016_Jan_29_1123
+time........=
+education...=
+occupation..=
+  Trial  Resp  Type  Correct      Latency    Stim/Resp
+  ----- ----- -----    -----        -----        -----

@@ -1,0 +1,1 @@
+for mdir in  ~/mnt/vosslabhpc/Projects/PITCH/PreprocData/*/{Control,Experimental}/{Pre,Post}/Flanker/run{1,2}/beh; do if [ -d ${mdir} ]; then new_dir=$(echo ${mdir} | sed 's|^.*\(PreprocData.*$\)|\1|g'); mkdir -p ${new_dir}; cp ${mdir}/* ./${new_dir}; fi; done

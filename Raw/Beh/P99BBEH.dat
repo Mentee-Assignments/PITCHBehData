@@ -1,0 +1,24 @@
+file version= 2.0
+gentask.....= PsychoPy
+id..........=
+operator....=
+doctor......=
+referral....=
+institution.=
+subject.....= P99BFa
+age.........=
+sex.........=
+hand........=
+medications.=
+class.......=
+state.......=
+label.......=
+date........= 2015_Sep_16_1649
+time........=
+education...=
+occupation..=
+  Trial  Resp  Type  Correct      Latency    Stim/Resp
+  ----- ----- -----    -----        -----        -----
+      1     0    19        0  1467.291000         Stim
+      2     0    28        0  1467.291000         Stim
+      3     0    18        0  1467.291000         Stim

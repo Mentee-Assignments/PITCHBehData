@@ -1,0 +1,31 @@
+file version= 2.0
+gentask.....= PsychoPy
+id..........=
+operator....=
+doctor......=
+referral....=
+institution.=
+subject.....= Ptestmp0BFp
+age.........=
+sex.........=
+hand........=
+medications.=
+class.......=
+state.......=
+label.......=
+date........= 2015_Feb_19_1505
+time........=
+education...=
+occupation..=
+  Trial  Resp  Type  Correct      Latency    Stim/Resp
+  ----- ----- -----    -----        -----        -----
+      1     1     5        1  2261.825920         Stim
+      2     4     6        1   448.197172         Stim
+      3     1     7        1   502.578143         Stim
+      4     4     8        1   415.814178         Stim
+      5     4     6        1   446.472976         Stim
+      6     4     8        1   411.431849         Stim
+      7     1     5        1   429.397649         Stim
+      8     4     7        0   326.479014         Stim
+      9     4     5        0   264.295093         Stim
+     10     4     7        0   414.456435         Stim
