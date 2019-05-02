@@ -9,24 +9,22 @@ import numpy as np
 script_path = os.path.dirname(os.path.realpath(__file__))
 pitch_dir = os.path.dirname(os.path.dirname(script_path))
 
-path = os.path.join(pitch_dir, 'PreprocData')
+path = os.path.join(pitch_dir, 'Raw')
 out_dir = os.path.join(pitch_dir, 'Bids')
-beh = glob(os.path.join(path, '[0-9][0-9]/[CEa-z]*/[Preost]*/Flanker/run[1-2]/beh/*.txt'))
-
+beh = glob(os.path.join(path, 'Beh/*[DurationRT]*.txt'))
+translation_dict = {'condition': {'E': 'Experimental', 'C': 'Control'}, 'run_id': {'A': '1', 'B': '2'}, 'session': {'1': 'Pre', '2': 'Post'}}
 
 # rough draft
 # Optionally match 'ALL'
-pattern = re.compile(r"^.*PreprocData/([0-9]{2})/([CEa-z]*)/([Preost]*)/Flanker/run([1-2])/beh/.*?_(ALL)?.*$")
+pattern = re.compile(r"^.*$")#Raw/Beh/P(?P<subject_id>[0-9]{2})(?P<condition>[CE])(?P<session>[1-2])BOL_(?P<trial_type>[IncCogruetNal]+)_[InCorect]+_(?P<run_id>[AB])_[DurationRT]+.txt$")
 beh_dict = {}
 for filename in beh:
     res = re.search(pattern, filename)
-    # we don't want to collect 'ALL'
-    if 'ALL' not in res.groups():
-        dict_key = '_'.join(res.groups()[:-1])
-        if dict_key in beh_dict:
-            beh_dict[dict_key].append(filename)
-        else:
-            beh_dict[dict_key] = [filename]
+    dict_key = '_'.join(res.groups()[:-1])
+    if dict_key in beh_dict:
+        beh_dict[dict_key].append(filename)
+    else:
+        beh_dict[dict_key] = [filename]
 
 cond_pattern = re.compile(r"^.*beh/.*?([NCIa-z]*)_([ICa-z]*)_[A-Z]_[RTDa-z]*.txt$")
 cond_dict = {}
