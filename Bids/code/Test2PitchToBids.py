@@ -18,9 +18,10 @@ translation_dict = {'condition': {'E': 'Experimental', 'C': 'Control'},
                    }
 
 # rough draft
-# Optionally match 'ALL'
+# for some reason sub-048 has _o_ in their filenames
 pattern = re.compile((r"^.*Raw/Beh/P(?P<subject_id>[0-9]{2})"
                       r"(?P<condition>[CE])"
+                      r"(?:_o_)?"
                       r"(?P<session>[1-2])BOL_"
                       r"(?P<trial_type>[IncCogruetNal]+)_"
                       r"(?P<acc>[InCorect]+)_"
