@@ -12,16 +12,15 @@ pitch_dir = os.path.dirname(os.path.dirname(script_path))
 path = os.path.join(pitch_dir, 'Raw')
 out_dir = os.path.join(pitch_dir, 'Bids')
 beh = glob(os.path.join(path, 'Beh/*BOL_*[DurationRT]*.txt'))
-translation_dict = {'condition': {'E': 'Experimental', 'C': 'Control'},
+translation_dict = {'condition': {'E': 'Exercise', 'C': 'Control'},
                     'run_id': {'A': '1', 'B': '2'},
                     'session': {'1': 'Pre', '2': 'Post'},
                    }
 
 # rough draft
-# for some reason sub-048 has _o_ in their filenames
+# Optionally match 'ALL'
 pattern = re.compile((r"^.*Raw/Beh/P(?P<subject_id>[0-9]{2})"
                       r"(?P<condition>[CE])"
-                      r"(?:_o_)?"
                       r"(?P<session>[1-2])BOL_"
                       r"(?P<trial_type>[IncCogruetNal]+)_"
                       r"(?P<acc>[InCorect]+)_"
