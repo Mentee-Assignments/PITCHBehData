@@ -101,6 +101,8 @@ for sub_stype_ses_run, fdict in cond_dict.items():
             run_df = run_df.append(df_cond_corr)
     run_df = run_df[headers]
     run_df.sort_values(by=['onset'], inplace=True)
+    # 4 dummy scans were removed from the task scans, but the task did not take this into account.
+    run_df['onset'] = run_df['onset'] - 8
     sub, stype, ses, run = sub_stype_ses_run.split('_')
     out_file_dir = os.path.join(out_dir, 'sub-0{sub}/ses-{stype}{ses}/func/'.format(sub=sub, ses=ses, stype=stype))
     os.makedirs(out_file_dir, exist_ok=True)
